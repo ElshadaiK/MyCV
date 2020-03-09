@@ -9,32 +9,35 @@
 <body>
     <header>
         <nav>
-            <hr>
-            <a href="index.html" target="_blank">Home</a> | 
-            <a href="contact.html">Contact</a> | 
+            <a href="index.html">Home</a> | 
+            <a href="contact.html" target="_blank">Contact</a> | 
             <a href="gallery.html" target="_blank">Gallery</a>
-            
-            
             <hr>
         </nav>
+        <nav>
+            <a href="#comment">Comment</a> 
+            
+        </nav>
     
-    <table cellspacing="8">
+        <table cellspacing="8">
             <tr>
-                <td style="width:100px; height:100px;"> 
+                <td> 
                     <img src="./assets/image/image.png"  border="1"  
-                    alt="Your Name Profile Image"  width="300px">
+                    alt="Your Name Profile Image"  width="300px" style="border-radius: 50%">
+                    
+                    
+                    
                 </td>
                 <td>
-                    <h1>Elshadai</h1>
-                    <h3>
-                        2<sup>nd</sup> year student, 
+                    <h2>Elshadai K. Tegegn</h2>
                     <h4>
                         <mark>
                             Addis Ababa institue of Technology
                         </mark><br>
-                        ITSC department
+                        ITSC department<br>
+                        2<sup>nd</sup> year student, 
                     </h4>
-                    </h3>   
+                       
                     <p>Hi there , </p>
                     <p>I am Elshadai, I am expert <strong>frontend developer.</strong> And soon to be
                         full-stack developer. <br>I have worked on mobile programming for <em>2 </em> years now. 
@@ -44,11 +47,11 @@
                     </p>
                 </td>
             </tr>
-        </table>
-</header>
+        </table> 
+    </header>
 
 <hr>
-<h3>Leave your comment here</h3>
+<h3 id="comment">Leave your comment here</h3>
 <form enctype="text/plain" action="mailto:elshadaikassutegegn@gmail.com" method="POST">
     <table cellspacing= 10>
         <tr>
@@ -70,23 +73,29 @@
             <option value="African">Africa</option></select></td>
         </tr>
         <tr>
-            <td><label for="password">Password: </label><sub>atleast one lower case, one upper case, one number and one special character</sub></td>
-        <td><input type="password" name="password" id="password" pattern='("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")'></td>
+            <td><label for="password">Password: </label></td>
+        <td width="100px" ><input type="password" name="password" id="password"  pattern='("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")'><sub>"8 characters atleast one lower case, one upper case, one number and one special character"</sub></td>
         </tr>
         <tr>
             <td><label for="detail">Message: </label></td>
             <td><textarea name="detail" id="detail" cols="30" rows="10"></textarea><br></td>
         </tr>
+        <tr>
+            <td>
+                <label for="maprouter">Location</label>
+            </td>
+            <td>
+                <div class="mapouter"><div class="gmap_canvas"><iframe width="200" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=Addis%20Ababa&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net">embedgooglemap.net</a></div><style>.mapouter{position:relative;text-align:right;height:200px;width:200px;}.gmap_canvas {overflow:hidden;background:none!important;height:200px;width:200px;}</style></div>
+            </td>
+        </tr>
     </table>    
-    <input type="submit" name="submit" id="submit">
+    <input type="submit" name="submit" id="submit" text="Submit">
 
 </form>
 <hr>
-<div class="mapouter"><div class="gmap_canvas"><iframe width="200" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=Addis%20Ababa&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net">embedgooglemap.net</a></div><style>.mapouter{position:relative;text-align:right;height:200px;width:200px;}.gmap_canvas {overflow:hidden;background:none!important;height:200px;width:200px;}</style></div>
-<hr>
 <footer>
     <nav>
-  <a href="https://twitter.com/@pour_qua"><img id="tlogo" src="./assets/image/tlogo.png" width="20px"></a>&nbsp;&nbsp;
+  <a href="https://twitter.com/@pour_qua"><img id="tlogo" src="./assets/image/twitter.svg" width="60px"></a>&nbsp;&nbsp;
   <a href=" https://www.instagram.com/elshadai_tegegn"><img id="ilogo" src="./assets/image/ilogo.png.jpg" width="20px"></a>&nbsp;&nbsp;
   <a href="https://t.me/pour_qua"><img id="tllogo" src="./assets/image/tllogo.png" width="20px"></a>&nbsp;&nbsp;
   <a href="https://www.linkedin.com/in/elshadai-tegegn-a75bb9155"><img id="llogo" src="./assets/image/llogo.png" width="20px"></a><br>
