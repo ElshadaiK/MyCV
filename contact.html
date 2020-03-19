@@ -5,109 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elshadai | Contact</title>
     <link rel="icon" href="assets/image/icon.jfif">
-    <style>
-        body{
-            
-            background-image: url(./assets/image/coffee.jfif);
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        img{
-            float: left;
-        }
-    </style>
+    <link rel="stylesheet" href="./assets/CSS/index.css">
 </head>
 <body>
 
     <header>
+        <a id="logo" href="index.html">
+            <img src="./assets/image/icon.png" alt="Logo">
+            <span>My Website</span>
+        </a>
         <nav>
-            <a href="./index.html">Home</a> | 
-            <a href="./contact.html" target="_blank">Contact</a> | 
-            <a href="./gallery.html" target="_blank">Gallery</a>  |
-            <a href="./myworks.html" target="_blank">My Works</a>
-            <hr>
+            <ul>
+                <li><a href="./contact.html" >Contact</a>  
+                    </li>
+                <li><a href="./blog.html" >Blogs</a>
+                </li>
+                <li><a href="./gallery.html" >Gallery</a> 
+                    </li>
+                <li><a href="./myworks.html" >My Works</a>
+                </li>
+                
+            </ul>
         </nav>
-        <nav>
-            <a href="#comment">Comment</a> 
-            
-        </nav>
-    
-        <img src="./assets/image/image.png" alt="Your Name Profile Image"  width="20%"  style="border-radius: 50%">
-        <h2>Elshadai K. Tegegn</h2>
-            <h4>
-                <mark>
-                    Addis Ababa institue of Technology
-                </mark><br>
-                ITSC department<br>
-                2<sup>nd</sup> year student, 
-            </h4>
-            
-            <p>Hi there , </p>
-            <p>I am Elshadai, I am expert <strong>frontend developer.</strong> And soon to be
-                full-stack developer. <br>I have been working on mobile programming for <em>2 </em> years now. 
-            </p>
-            <p>
-                I am passionate about working in diffrent types of porgaming languages 
-            </p> 
     </header>
+    <main>
+        <section class="title">
+            <!-- content for the hero -->
+            <section class="title-content">
+                <img src="./assets/image/image.png"   
+                    alt="Your Name Profile Image"  width="300px" style="border-radius: 50%">
+                    
+                <h1 class="name-title">Elshadai K. Tegegn</h1>
+                <p>Addis Ababa institue of Technology<br>
+                    ITSC department<br>
+                    2<sup>nd</sup> year student </p>
 
-<hr>
-<h3 id="comment">Leave your comment here</h3>
-<form enctype="text/plain" action="mailto:elshadaikassutegegn@gmail.com" method="POST">
-    <table cellspacing= 10>
-        <tr>
-            <td><label for="fname">First Name: </label></td>
-            <td><input type="text" name="fName" id="fName" pattern="[a-zA-Z]{4,8}" ></td>
-        </tr>
-        <tr>
-            <td><label for="lName">Last Name: </label></td>
-            <td><input type="text" name="lName" id="lName"  pattern="[a-zA-Z]{4,8}" ></td>
-        </tr>
-        <tr>
-            <td><label for="email">Email: </label></td>
-        <td><input type="email" name="email" id="email"></td>
-        </tr>
-        <tr>
-            <td><label for="continents">Continent: </label></td>
-            <td colspan="2"><select name="continents" id="">
-            <option value="Asian">Asia</option>
-            <option value="African">Africa</option>
-            <option value="American">America</option>
-            <option value="Australian">Australia</option></select></td>
-        </tr>
-        <tr>
-            <td><label for="password">Password: </label></td>
-        <td width="100px" ><input type="password" name="password" id="password"  pattern='("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")'><sub>"8 characters atleast one lower case, one upper case, one number and one special character"</sub></td>
-        </tr>
-        <tr>
-            <td><label for="detail">Message: </label></td>
-            <td><textarea name="detail" id="detail" cols="30" rows="10"></textarea><br></td>
-        </tr>
-        <tr>
-            <td>
-                <label for="maprouter">Location</label>
-            </td>
-            <td>
-                <div class="mapouter"><div class="gmap_canvas"><iframe width="200" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=Addis%20Ababa&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net">embedgooglemap.net</a></div><style>.mapouter{position:relative;text-align:right;height:200px;width:200px;}.gmap_canvas {overflow:hidden;background:none!important;height:200px;width:200px;}</style></div>
-            </td>
-        </tr>
-    </table>    
-    <input type="submit" name="submit" id="submit" text="Submit">
-
-</form>
-<hr>
-<footer>
-    <nav>
-  <a href="https://twitter.com/@pour_qua"><img id="tlogo" src="./assets/image/twitter.svg" width="3%"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href=" https://www.instagram.com/elshadai_tegegn"><img id="ilogo" src="./assets/image/instagram.svg" width="3%"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://t.me/pour_qua"><img id="tllogo" src="./assets/image/telegram.svg" width="3%"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://www.linkedin.com/in/elshadai-tegegn-a75bb9155"><img id="llogo" src="./assets/image/linkedin.svg" width="3%"></a><br>
-
-    </nav>
-    <hr>
-    <p align="center"> Developed by Elsh Tegegn. &copy;2020</p>
-    <hr>
-</footer>
+                
+            </section>
+        </section>
+        <article>
+            
+            <section class="contact-section">
+            <h1>Leave your comment here</h1>
+            <div class="border"></div>
+                <form class="contact-form" enctype="text/plain" action="mailto:elshadaikassutegegn@gmail.com" method="POST">
+                    <input type="text" class="contact-form-text" id="fName" pattern="[a-zA-Z]{4,8}" placeholder="Your Name">
+                    <input type="email" class="contact-form-text"  id="email" placeholder="Your Email">
+                    <input type="tel" class="contact-form-text"  id="phone" placeholder="Your Phone">
+                    <input type="password" class="contact-form-text"  id="password"  pattern='("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")' placeholder="Password">
+                    <select name="continents"class="contact-form-text"  >
+                        <option value="African">Africa</option>
+                        <option value="Asian">Asia</option>
+                        <option value="European">Europe</option>
+                        <option value="South American">South America</option>
+                        <option value="North American">North America</option>
+                        <option value="Australian">Australia</option>
+                    </select>
+                    <textarea class="contact-form-text" placeholder="Your Message"></textarea>
+                    <div class="mapouter"><div class="gmap_canvas"><iframe width="200" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=Addis%20Ababa&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net">embedgooglemap.net</a></div><style>.mapouter{position:relative;text-align:right;height:200px;width:200px;}.gmap_canvas {overflow:hidden;background:none!important;height:200px;width:200px;}</style></div>
+                    <input type="submit"  class="contact-form-btn"  id="submit" value="Send">
+            
+        
+                </form>
+                <section class="social-networks">
+                    <a href="https://twitter.com/@pour_qua"><img id="tlogo" src="./assets/image/twitter.svg" class="social-networks-image"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href=" https://www.instagram.com/elshadai_tegegn"><img id="ilogo" src="./assets/image/instagram.svg" class="social-networks-image"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://t.me/pour_qua"><img id="tllogo" src="./assets/image/telegram.svg" class="social-networks-image"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://www.linkedin.com/in/elshadai-tegegn-a75bb9155"><img id="llogo" src="./assets/image/linkedin.svg" class="social-networks-image"></a>
+                </section>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <img src="./assets/image/icon.png" alt="Footer Logo">
+        <span>Developed by Elsh Tegegn. <br>Copyright &copy; 2020</span>
+    </footer>
 
 </body>
 </html>
