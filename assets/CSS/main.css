@@ -115,7 +115,6 @@
  
 .title{
     max-height: 900px;
-
     text-align: center;
     background-size: cover;
   }
@@ -123,6 +122,7 @@
       background-color: #EEE;
     color: #999;
     padding-top: 100px;
+    padding-bottom: 40px;
   }
   .title-content h1   {
     font-size: 60px;
@@ -228,7 +228,7 @@
 
 
 .contact-section{
-    background: url(./../image/programming.jfif) no-repeat center;
+    background: url(./../image/background.jpeg) no-repeat center;
     padding: 40px 0px;
     background-size: cover;
 }
