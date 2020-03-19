@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/CSS/tictactoe.css">
+</head>
+<body>
+    <header>
+        <h1>Tic Tac Toe</h1>
+    </header>
+    <main>
+        <article>
+            
+            <h5 id="status">You're </h5>
+            <h2></h2>
+            <h3>
+                <section id="gameInfo" class="infoContainer displayNone">
+                    <div id="yourTurn" class="infoBox">Your turn</div>
+                    <button id="reset-button" class="infoBox">Reset Game</button>
+                    <div id="compTurn" class="infoBox">Computer's turn</div>
+                  </section>
+                  
+                <section id="playerOne" class="center"></section>
+                </h3>
+                
+                <section id="gameResult" class="center"></section>
+                <section id="congratsOrSorry" class="center"></section>
+        </article>
+        <section id="board">
+        <table>
+            <tr>
+                <td id="one"></td>
+                <td class="vert" id="two"></td>
+                <td id="three"></td>
+            </tr>
+            <tr>
+                <td class="hori" id="four"></td>
+                <td class="vert hori" id="five"></td>
+                <td class="hori" id="six"></td>
+            </tr>
+            <tr>
+                <td id="seven"></td>
+                <td class="vert" id="eight"></td>
+                <td id="nine"></td>
+            </tr>
+        </table>
+    </section>
+        <aside id="user-form">
+            <h3>Please choose between X and O</h3>
+            <form name="radioBtns">
+                <input type="radio" name="myradio" value="X">X
+                <input type="radio" name="myradio" value="O">O
+            </form>
+        </aside>
+    </main>
+    <footer>
+        <small>&copy; Elshadai K. Tegegn, 2020</small>
+    </footer>
+
+    
+    <script src="./tictactoe.js"></script>
+
+
+</body>
+</html>
