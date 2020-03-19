@@ -4,36 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elshadai | My Works</title>
+    <link rel="icon" href="assets/image/icon.png">
+    <link rel="stylesheet" href="./assets/CSS/index.css">
 </head>
 <body>
 
     <header>
+        <a id="logo" href="index.html">
+            <img src="./assets/image/icon.png" alt="Logo">
+            <span>My Website</span>
+        </a>
         <nav>
-            <a href="./index.html" target="_blank">Home</a> | 
-            <a href="./contact.html" target="_blank">Contact</a> | 
-            <a href="./gallery.html" target="_blank">Gallery</a> |
-            <a href="./gallery.html">My Works</a>
-            
-            <hr>
+            <ul>
+                <li><a href="./contact.html" >Contact</a>  
+                    </li>
+                <li><a href="./blog.html" >Blogs</a>
+                </li>
+                <li><a href="./gallery.html" >Gallery</a> 
+                    </li>
+                <li><a href="./myworks.html" >My Works</a>
+                </li>
+                
+            </ul>
         </nav>
-        <nav>
-            <a href="#Question1">Question 1</a> | 
-            <a href="#Question2">Question 2</a> | 
-            <a href="#Question3">Question 3</a>  
-            
-        </nav>
+    </header>
+        <header class="header2">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#Question1">Question 1</a></li>
+                    <li>
+                        <a href="#Question2">Question 2</a></li>
+                    <li>
+                        <a href="#Question3">Question 3</a></li>
+                </ul>  
+            </nav>
         </header>
         <main>
-            <h4 id="Question1">Question #1</h4>
-            <p>Performing the Styles on the selector exercise file </p>
-            <a href="./1.html" target="_blank"> See the answer</a>
-            <h4 id="Question2">Question #2</h4>
-            <p>Tic tac toe board</p>
-            <a href="./2.html" target="_blank"> See the answer</a>
-            <h4 id="Question3">Question #3</h4>
-            <p>Flags  of Various Countries with the box model concept and position property</p>
-            <a href="./3.html" target="_blank"> See the answer</a>
-        </main>
-    
+            <article  class="question-section">
+                <section class="question-header">
+                    <h4 id="Question1">Question #1</h4>
+                </section>
+                <section class="question-content">
+                    <p>Performing the Styles on the selector exercise file </p>
+                    <ul><li>
+                        <a href="./1.html" target="_blank"> See the answer</a></li></ul>
+                
+                </section>
+            </article>
+            <article  class="question-section">
+                <section  class="question-header">
+                    <h4 id="Question2">Question #2</h4>
+                </section>
+                <section class="question-content">
+                    <p>Tic tac toe board</p>
+                    <ul><li><a href="./2.html" target="_blank"> See the answer</a></li></ul>
+                
+                    
+                </section>
+            </article>
+            <article  class="question-section">
+                <section  class="question-header">
+                    <h4 id="Question3">Question #3</h4>
+                </section>
+                <section class="question-content">
+                    <p>Flags  of Various Countries with the box model concept and position property</p>
+                <ul><li>
+                    <a href="./3.html" target="_blank"> See the answer</a></li></ul>
+                </section>
+            </article>
+    </main>
+    <footer>
+        <img src="./assets/image/icon.png" alt="Footer Logo">
+        <span>Developed by Elsh Tegegn. <br>Copyright &copy; 2020</span>
+    </footer>
 </body>
 </html>

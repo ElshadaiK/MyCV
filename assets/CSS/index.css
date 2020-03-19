@@ -21,6 +21,10 @@
     color: #FFF;
     padding: 20px 30px;
   }
+  .header2{
+      
+    background: #333;
+  }
   
   /* logo */
   #logo         {
@@ -79,7 +83,7 @@
   }
   
   /* styling my main content */
-  .dropdown {
+.dropdown {
     display: inline-block;
 }
  
@@ -100,6 +104,12 @@
     background-color: white;
     color: darkgrey;
     text-align: left;
+}
+#btn{
+    color: #777;
+    border: none;
+    font-size: medium;
+    background-color: lightgrey;
 }
  
 .title{
@@ -277,3 +287,51 @@ textarea.contact-form-text{
 .contact-form-btn:hover{
     background: #2980b9;
 }
+ 
+
+/* My Works page editing */
+.question-section   {
+    padding-bottom: 50px;
+    padding-top: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
+    
+    border-bottom: solid;
+  }
+ 
+  .question-content   {
+    width: 50%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .question-header {
+    text-align: left;
+    margin-bottom: 30px;
+    margin-left: 20%;
+  }
+  .question-header h4  {
+    font-size: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: #444;
+
+  }
+  ul   {
+    list-style: none;
+    margin: 0;
+  }
+
+  ul li a    {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 3px;
+    font-size: x-large ;
+    transition: 0.3s ease all;
+  }
+  nav ul li a:hover   {
+    background: #444;
+  }
+  
