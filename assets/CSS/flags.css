@@ -1,85 +1,98 @@
-table{
-    border: solid;
-    padding: 5px;
-    margin: 5%;
-    width: 70%;
-       
+html,
+body   {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  font-size: 16px;
 }
-tr{
-    height: 50px;
+
+/* styling our overall page */
+body     {
+  background: #FFF;
+  font-family: Arial, Helvetica, sans-serif;
 }
-#first, #second, #third{
-    
-    display: inline-flex;
+header   {
+    background: #222;
+    color: #FFF;
+    padding: 10px 10px;
+    text-align: center;
+}
+footer   {
+    background: #222;
+    color: #DDD;
+    padding: 20px;
+    text-align: center;
+  }
+ul   {
+    list-style: none;
+    margin: 50px;
+    display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+}
+.flag   {
+    align-content: space-between;
     justify-content: space-between;
+    border: 0.2px solid;
+    height: 100px;
+    width: 80%;
+    padding: 60px;
 }
-#first > .first-column tr:first-child{
-    background-color: green;
+div{
+    margin: 50px;
 }
-#first > .first-column tr:nth-child(2){
-    background-color: yellow;
-}
-#first > .first-column tr:last-child{
-    background-color: red;
-}
-#first > .second-column tr:first-child{
-    background-color: black;
-}
-#first > .second-column tr:nth-child(2){
-    background-color: red;
-
-}#first > .second-column tr:last-child{
-    background-color: green;
-}
-#first > .third-column tr:first-child{
-    background-color: black;
-}
-#first > .third-column tr:nth-child(2){
-    background-color: red
-}#first > .third-column tr:last-child{
-    background-color: green;
-}
-#first > .fourth-column tr:first-child{
-    background-color: black;
-}
-#first > .fourth-column tr:nth-child(2){
-    background-color: red;
-}#first > .fourth-column tr:last-child{
-    background-color: green;
-}
-#second > .first-column tr:first-child{
-    background-color: green;
-}
-#second > .first-column tr:nth-child(2){
-    background-color: yellow;
-}
-#second > .first-column tr:last-child{
-    background-color: red;
-}
-#second > .second-column tr:first-child{
-    background-color: black;
-}
-#second > .second-column tr:nth-child(2){
-    background-color: red;
-
-}#second > .second-column tr:last-child{
-    background-color: green;
-}
-#second > .third-column tr:first-child{
-    background-color: black;
-}
-#second > .third-column tr:nth-child(2){
-    background-color: red;
-}#second > .third-column tr:last-child{
-    background-color: green;
-}
-#second > .fourth-column tr:first-child{
-    background-color: black;
-}
-#second > .fourth-column tr:nth-child(2){
-    background-color: red;
-}#second > .fourth-column tr:last-child{
-    background-color: green;
+.france {
+    background: linear-gradient(to right, #002395 calc(100% / 3), white calc(100% / 3), white calc(100% / 3 * 2), #ED2939 calc(100% / 3 * 2)); 
 }
 
+.colombia {
+    background: linear-gradient(to bottom, #FCD116 0%, #FCD116 50%, #003893 50%, #003893 75%, #CE1126 75%, #CE1126 100%); 
+}
+.russia {
+    background: linear-gradient(to bottom, white calc(100% / 3), #0039A6 calc(100% / 3), #0039A6 calc(100% / 3 * 2), #D52B1E calc(100% / 3 * 2)); 
+}
+.norway {
+    background: linear-gradient(to bottom, transparent 43%, #002868 43%, #002868 54%, transparent 54%), linear-gradient(to right, transparent 28%, #002868 28%, #002868 37%, transparent 37%), linear-gradient(to right, transparent 25%, white 25%, white 40%, transparent 40%), linear-gradient(to bottom, transparent 38%, white 38%, white 59%, transparent 59%), #EF2B2D; 
+}
+.monaco {
+    background: linear-gradient(to bottom, #CE1126 50%, white 50%); 
+}
+.mauritius {
+    background: linear-gradient(to bottom, #EA2839 25%, #1A206D 25%, #1A206D 50%, #FFD500 50%, #FFD500 75%, #00A551 75%); 
+}
+.italy {
+    background: linear-gradient(to right, #009246 calc(100% / 3), white calc(100% / 3), white calc(100% / 3 * 2), #CE2B37 calc(100% / 3 * 2)); 
+}
+.japan {
+    background: radial-gradient(100px at 50% 50%, #BC002D 0, #BC002D 35%, transparent 35%, transparent 100%), white; 
+}
+.germany {
+    background: linear-gradient(to bottom, black calc(100% / 3), #DD0000 calc(100% / 3), #DD0000 calc(100% / 3 * 2), #FFCE00 calc(100% / 3 * 2)); 
+}
+.ukraine {
+    background: linear-gradient(to bottom, #005BBB 50%, #FFD500 50%); 
+}
+.yemen {
+    background: linear-gradient(to bottom, #CE1126 calc(100% / 3), white calc(100% / 3), white calc(100% / 3 * 2), black calc(100% / 3 * 2)); 
+}
+.vietnam {
+    background: #DA251D;
+    position: relative; 
+}
+.vietnam:before {
+    position: absolute;
+    content: "★";
+    left: 0;
+    margin-left: auto;
+    right: 0;
+    margin-right: auto;
+    text-align: center;
+    color: #FFFF00;
+    font-size: 64px;
+    top: -20px; 
+}
+    
+    
+     
+    
+     
