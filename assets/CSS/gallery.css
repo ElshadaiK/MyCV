@@ -4,31 +4,40 @@
 body{
     font-family: 'Times New Roman', Times, serif;
     font-size: 1em;
+
 }
-th, h3{
-    width: 60em;
-    text-align: center;
+#main-sec{
+    
+    display: flex;
+    flex-direction: column;
+}
+h3{
+    width: 40em;
     border-bottom: solid 1px;
 }
 figure{
     float: left;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2em;  
+    font-size: 1em;  
     margin: 2%;
-    width: 29%;  
+    width: 26%;  
+    padding: 1%;
 }
 
 #clear{
     clear: left;
 }
 .nameTitle{
+    text-align: center;
     position: relative;
     top: 20px;
+    right: 10px;
 }
-@media(max-width: 800px){
+@media(max-width: 1200px){
     figure{
         float: none;
         width: 90%;
+        text-align: center;
     }
     
 }
