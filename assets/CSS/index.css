@@ -19,11 +19,12 @@
   header   {
     background: #222;
     color: #FFF;
-    padding: 20px 30px;
+    padding: 20px 20px;
   }
   .header2{
       
     background: #333;
+    text-align: center;
   }
   
   /* logo */
@@ -70,7 +71,7 @@
   
   /* styling my footer */
   footer   {
-    background: #111;
+    background: #222;
     color: #777;
     padding: 20px;
     text-align: center;
@@ -296,6 +297,9 @@ textarea.contact-form-text{
     margin-left: 10%;
     margin-right: 10%;
     
+  }
+  .question-section:not(:last-child){
+    
     border-bottom: solid;
   }
  
@@ -322,11 +326,11 @@ textarea.contact-form-text{
     margin: 0;
   }
 
-  ul li a    {
+  .question-section  ul li a    {
     color: #333;
     text-decoration: none;
     display: block;
-    padding: 10px 15px;
+    padding: 10px 5px;
     border-radius: 3px;
     font-size: x-large ;
     transition: 0.3s ease all;
@@ -334,4 +338,18 @@ textarea.contact-form-text{
   nav ul li a:hover   {
     background: #444;
   }
-  
+   /* Blog page editing */
+   .answer-content{
+       
+    text-align: left;
+   }
+   .question-title, .answer-header{
+       font-size: large;
+   }
+   .question-asked{
+       text-align: center;
+   }
+   .date-posted{
+       text-align: right;
+       color: lightslategrey;
+   }

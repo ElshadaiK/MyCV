@@ -3,72 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elshadai / Blog</title>
-    <style>
-        p{
-            color: brown;
-        }
-    </style>
-    <link rel="stylesheet" href="./assets/CSS/style.css">
+    <title>Elshadai | Blog</title>
+    <link rel="icon" href="assets/image/icon.png">
+    <link rel="stylesheet" href="./assets/CSS/index.css">
 </head>
 <body>
     <header>
+        <a id="logo" href="index.html">
+            <img src="./assets/image/icon.png" alt="Logo">
+            <span>My Website</span>
+        </a>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="./contact.html" >Contact</a>  
+                    </li>
+                <li><a href="./blog.html" >Blogs</a>
+                </li>
+                <li><a href="./gallery.html" >Gallery</a> 
+                    </li>
+                <li><a href="./myworks.html" >My Works</a>
+                </li>
                 
-                <li><a href="blog.html">Blog</a></li>
             </ul>
         </nav>
     </header>
-        <main>
-        <div id="content">
-
+    <header class="header2">
+        <nav>
+            <ul>
+                <li>
+                    <a href="#Question4">Relative Sizes</a></li>
+                <li>
+                    <a href="#Question5">Default Width's integration</a></li>
+                <li>
+                    <a href="#Question6">Specific changes in CSS3</a></li>
+            </ul>  
+        </nav>
+    </header>
+    <main>
+        <article  class="question-section">
+            <section class="question-header">
+                <h4 id="Question4">Relative sizes in CSS</h4>
+            </section>
+            <section class="answer-header">
+                <span class="question-asked"><p>Does it matter to use relative size(%,em,rem) one styling the size of an element so that the element is responsive? <br> Yes, it does.</p></span>
+            </section>
+            <section class="question-title">
+                <p>Percentage (%)</p>
+            </section>
+            <section class="answer-content">
+                <p>Using % to set a font size, means setting the font size the percentage relative to it's parent's font size.
+                    So when zooming in and out, the relativity will be kept since our top reference is the browser's size. 
+                </p>
             
-        <article>
-            <p class="title">His first post</p>
-            <section>
-                <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia nisi alias omnis beatae, mollitia aperiam eos eligendi sint vero explicabo possimus corrupti asperiores sunt officiis culpa modi, officia deleniti reprehenderit?
-                </p>
-                <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt unde veritatis dolorem laboriosam et quae eligendi corrupti hic esse dignissimos perferendis, mollitia deleniti natus.
-                </p>
             </section>
-            <p class="date">March 10, 2020</p>
-        </article>
-        <article>
-            <p class="title">His Second post</p>
-            <section>
-                <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia nisi alias omnis beatae, mollitia aperiam eos eligendi sint vero explicabo possimus corrupti asperiores sunt officiis culpa modi, officia deleniti reprehenderit?
-                </p>
-                <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt unde veritatis dolorem laboriosam et quae eligendi corrupti hic esse dignissimos perferendis, mollitia deleniti natus.
-                </p>
+            <section class="question-title">
+                <p>Rem </p>
             </section>
-            <p class="date">March 10, 2020</p>
-        </article>
-        <article>
-            <p class="title">His third post</p>
-            <section>
-                <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia nisi alias omnis beatae, mollitia aperiam eos eligendi sint vero explicabo possimus corrupti asperiores sunt officiis culpa modi, officia deleniti reprehenderit?
+            <section class="answer-content">
+                <p>One rem unit is equal to the computed value of font-size on the root element. 
+                    When specified on the font-size property of the root element, the rem units refer to the property’s initial value.
+                    1rem equals the font size of the html element (which for most browsers has a default value of 16px).
+                    So when using rem, the browser looks up to the parent's size and will set the one we're adjusting relative to it.
+
                 </p>
-                <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt unde veritatis dolorem laboriosam et quae eligendi corrupti hic esse dignissimos perferendis, mollitia deleniti natus.
-                </p>
-            </section>
-            <p class="date">March 10, 2020</p>
-        </article>
-
-
-
             
+            </section>
+            <section class="question-title">
+                <p>Em</p>
+            </section>
+            <section class="answer-content">
+                <p>Em units are relative to the font size of their own element. So when adjusting an elements size property using em, the browser would choose the relative of what it's set to default set that size to. 
+                    For example, if an unordered list's font size is set to 0.75em, if we create a nested list inside this list, it would be 0.75 of it's parent which would be double decremented. 
+                    
+                </p>
+            
+            </section>
+            <section class="date-posted">
+                19<sup>th</sup> March, 2020
+            </section>
+        </article>
+        <article  class="question-section">
+            <section class="question-header">
+                <h4 id="Question5">Default width's integration</h4>
+            </section>
+            <section class="answer-header">
+                <span class="question-asked"><p>We said 16px is default browser width so what does it mean when we say 200px?</p></span>
+            </section>
+            <section class="answer-content">
+                <p>The CSS pixel is an absolute length unit, and absolute length units represent a physical measurement when the physical properties of the output medium are known. 
+                    In low-resolution screen scenarios, that physical measurement represents one device pixel. 
+                    In higher screen resolutions, it’s implied that one CSS pixel equals multiple device pixels. <br>
+                The browsers 16px means, 100% of the font size. But when we set an element's size in pixels, it uses pixel(the absolute length unit) to set the size. Not the browsers.</p>
+            
+            </section>
+            <section class="date-posted">
+                19<sup>th</sup> March, 2020
+            </section>
+        </article>
+        <article  class="question-section">
+            <section class="question-header">
+                <h4 id="Question6">Specific changes in CSS3</h4>
+            </section>
+            <section class="answer-header">
+                <p>
+                    Selectors
+                </p>
+            </section>
+            <section class="answer-content">
+                <p>
+                    CSS 3 introduces some new selectors. 
+                    Using these selectors one can choose DOM elements based on their attributes. 
+                    So you no need to specify classes and IDs for every element.
+                    Instead, one can utilize the attribute field to style them.
+                </p>
+            
+            </section>
+            <section class="answer-header">
+                <p>Rounded corners</p>
+            </section>
+            <section class="answer-content">
+                <p>
+                    CSS 3 addresses border rounding problem by introducing the border-radius property, which gives the same rounded-corner effect and one doesn't have to write all the code. 
+                </p>
+            
+            </section>
 
-        </div>
+            <section class="answer-header">
+                <p>Border Image</p>
+            </section>
+            <section class="answer-content">
+                <p>This is the ability to swap out a border with an image. 
+                    The property border-image allows to specify an image to display instead of a plain solid-colored border.</p>
+            </section>
+
+            <section class="answer-header">
+                <p>Box Shadow</p>
+            </section>
+            <section class="answer-content">
+                <p>A box shadow allows you to create a drop shadow for an element. 
+                    Usually this effect is achieved using a repeated image around the element. 
+                    However, with the property box-shadow this can be achieved by using the box-shadow property.
+                </p>
+            
+            </section>
+
+            <section class="answer-header">
+                <p>Text Shadow</p>
+            </section>
+            <section class="answer-content">
+                <p>The new text-shadow property allows you to add drop shadows to the text on a webpage. 
+                    Prior to CSS 3, this would be done by either using an image or duplicating a text element and then positioning it. 
+                </p>
+            </section>
+
+            <section class="answer-header">
+                <p>Gradient</p>
+            </section>
+            <section class="answer-content">
+                <p> Gradient attribute is used to create a gradient of color. 
+                    Some designers use a complete image and put in the background for the gradient effect, which increases the page load time.
+                </p>
+            </section>
+
+            <section class="answer-header">
+                <p>RGBA: Color, with Opacity</p>
+            </section>
+            <section class="answer-content">
+                <p> The RGB property in CSS is used to set colors for different elements. 
+                    CSS 3 introduces a modification and added opacity manipulation to this property. 
+                    RGB has been transformed to RGBA (Red Green Blue Alpha channels), which simplifies how you control the opacity of elements.
+
+                </p>
+            </section>
+
+            <section class="answer-header">
+                <p>Transform (Element Rotation)</p>
+            </section>
+            <section class="answer-content">
+                <p> CSS 3 also introduced a property called transform, which enables rotating Web elements on a webpage. 
+                    As of now, if designers wants to rotate of an element, they'd JavaScript. 
+                    Many JavaScript extensions/plugins are available online for this feature, but they can make the code cumbersome and most importantly consume more resources.
+
+                </p>
+            </section>
+
+            <section class="answer-header">
+                <p>Multicolumn Layout</p>
+            </section>
+            <section class="answer-content">
+                <p> Almost every webpage today is divided into columns or boxes, and adjusting these boxes so they display correctly on different browsers takes a toll on Web designers. 
+                    CSS 3 solves this problem with the multicolumn layout property; all you have to do is specify the number of columns you need and they will be created.</p>
+            </section>
+
+            <section class="answer-header">
+                <p>Web Fonts</p>
+            </section>
+            <section class="answer-content">
+                <p> CSS 3 also facilitates embedding any custom font on a webpage. Fonts are dependent on the client system and Web pages can render only fonts that are supported by the browser or the client machine. 
+                    By using the @font-face property, you can include the font from a remote location and can then use it.
+                </p>
+            </section>
+            <section class="date-posted">
+                19<sup>th</sup> March, 2020
+            </section>
+        </article>
+
+        
     </main>
+    
+    <footer>
+        <img src="./assets/image/icon.png" alt="Footer Logo">
+        <span>Developed by Elsh Tegegn. <br>Copyright &copy; 2020</span>
+    </footer>
 </body>
 </html>
