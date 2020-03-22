@@ -1,6 +1,11 @@
 let userValue;
-let inputs = document.querySelectorAll("input[type=radio]"),
-    x=inputs.length;
+let computerValue; 
+let turn;
+let messages;
+let inputs = document.querySelectorAll("input[type=radio]");
+
+x=inputs.length;
+
 while(x--)
     inputs[x].addEventListener("change",function(){
         document.getElementById('user-form').style.display = 'none';
@@ -9,7 +14,8 @@ while(x--)
 
         for (var i = 0, length = radios.length; i < length; i++) {
             if (radios[i].checked) {
-                userValue = radios[i].value;
+                turn = userValue = radios[i].value;
+                computerValue = (userValue == 'O')? 'X':'O';
                 break;
             }
         
@@ -17,7 +23,6 @@ while(x--)
         document.getElementById('status').innerText = "You're " + userValue;
         document.getElementById('status').style.visibility= 'visible';
     },0);
-let computerValue = (userValue == 'O')? 'X':'O';
 
     /*----- constants -----*/
     const winningCombos = [
@@ -33,10 +38,12 @@ let computerValue = (userValue == 'O')? 'X':'O';
     /*----- cached element references -----*/
     const squares = Array.from(document.querySelectorAll('td'));
     console.log(squares);
-    const messages = document.querySelector('h2');
+    if(turn){
+        messages = document.querySelector('h2');
+    
+    }
     /*----- app's state (variables) -----*/
     let board;
-    let turn = userValue;
     let win;
     if(board){
     win = board[0] && board[0] === board[1] && board[0] === board[2] ? board[0] : null;
@@ -55,21 +62,53 @@ let computerValue = (userValue == 'O')? 'X':'O';
             board.forEach(function(mark, index){
                 squares[index].textContent = mark;
             });
-            messages.textContent = win === 'T' ? `That's a tie, queen!` : win ? `${win} wins the game!` : `It's ${turn}'s turn!`;
+            
+            $('td').css({'background-color':'white'});
+            if(messages){
+            messages.textContent = win === 'T' ? `That's a tie, queen!` : win ? `${win} wins the game!` : `It's ${turn}'s turn!`;}
+        };
         render();
     };
-};
+
     init();
     function handleTurn(event) {
         let idx = squares.findIndex(function(square) {
         return square === event.target;
         });
-        board[idx] = turn;
-        win = getWinner(); 
-        turn = turn === 'X' ? 'O' : 'X'; 
+        if(board[idx] === ""){
+        choose(idx, event)
+        if(turn === computerValue){
+            computerTurn();
+        }
+        }
 // check your console logs to make sure it's working!
         console.log(board);
         };
+    function choose(num, event){
+        board[num] = turn;
+        if(event){
+        event.target.textContent = board[num]
+        event.target.style.backgroundColor = "lightgrey";
+        }
+        else{
+            board[num] = turn;
+            $('td').eq(num).css({'background-color':'lightgrey'});
+            $('td').eq(num).html(turn);
+// ADDING STYLE FOR THE COMPUTER
+        }
+        win = getWinner(); 
+        turn = turn === 'X' ? 'O' : 'X';         
+    }
+    function computerTurn(){
+        let indexes = [];
+        board.forEach(function check(item, index){
+            if(item === ""){
+                indexes.push(index);
+            }
+        });
+        let randomItem = indexes[Math.floor(Math.random()*indexes.length)];
+        choose(randomItem, undefined);
+    }
     function getWinner() {
         let winner = null;
         winningCombos.forEach(function(combo, index) {
