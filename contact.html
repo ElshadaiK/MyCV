@@ -6,8 +6,13 @@
     <title>Elshadai | Contact</title>
     <link rel="icon" href="assets/image/icon.png">
     <link rel="stylesheet" href="./assets/CSS/main.css">
+    <link rel="stylesheet" href="./assets/CSS/bootstrap.min.css">
+
 </head>
 <body>
+    <script src="./assets/JavaScript/jquery-3.4.1.js"></script>
+    <script src="./assets/JavaScript/bootstrap.bundle.min.js"></script>
+
 
     <header>
         <a id="logo" href="index.html">
@@ -47,15 +52,26 @@
             <section class="contact-section">
             <h1>Leave your comment here</h1>
             <div class="border"></div>
-                <form class="contact-form" enctype="text/plain" action="mailto:elshadaikassutegegn@gmail.com" method="POST">
-                    <input type="text" class="contact-form-text" id="fName" pattern="[a-zA-Z]{4,8}" placeholder="Your Name" required>
-                    <div class="invalid">The required name should only contain alphabetical characters</div>
-                    <input type="email" class="contact-form-text"  id="email" placeholder="Your Email" required>
-                    <div class="invalid">The required email maynot include any special characters other than the '.' or '@'</div>
+                <form class="contact-form" enctype="text/plain" action="mailto:elshadaikassutegegn@gmail.com" method="POST" id="comment-form">
+                    <input  
+                        title="Name"
+                        data-content="The name is required. And it should only contain alphabetical characters"
+                        data-role="validate"
+                        type="text"
+                        class="contact-form-text" 
+                        id="fName" pattern="[a-zA-Z]{4,8}" placeholder="Your Name" required>
+                    <input 
+                        title="Email"
+                        data-content="The email is required. And it maynot include any special characters other than the '.' or '@'"
+                        data-role="validate" type="email" class="contact-form-text"  id="email" placeholder="Your Email" required>
+                    <div class="invalid"></div>
                     <input type="tel" class="contact-form-text"  id="phone" placeholder="Your Phone">
-                    <input type="password" class="contact-form-text"  id="password"  pattern='("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")' placeholder="Password" required>
-                    <div class="invalid">Password should be minimun 8 characters long, and should contain atleast one uppercase, one lowercase, and one special character</div>
-                    <select name="continents"class="contact-form-text"  >
+                    <input 
+                        title="Password"
+                        data-content="The password is required. And it  should be minimun 8 characters long, and should contain atleast one uppercase, one lowercase, and one special character"
+                        data-role="validate"
+                        type="password" class="contact-form-text"  id="password"  pattern='("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")' placeholder="Password" required>
+                    <select name="continents" class="contact-form-text">
                         <option value="African">Africa</option>
                         <option value="Asian">Asia</option>
                         <option value="European">Europe</option>
@@ -65,10 +81,13 @@
                     </select>
                     <textarea class="contact-form-text" placeholder="Your Message"></textarea>
                     <div class="mapouter"><div class="gmap_canvas"><iframe width="200" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=Addis%20Ababa&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net">embedgooglemap.net</a></div><style>.mapouter{position:relative;text-align:right;height:200px;width:200px;}.gmap_canvas {overflow:hidden;background:none!important;height:200px;width:200px;}</style></div>
-                    <input type="submit"  class="contact-form-btn"  id="submit" value="Send">
+                    <input 
+                        data-role="trigger-validation"
+                        type="submit"  class="contact-form-btn"  id="submit" value="Send">
             
         
                 </form>
+                <div id="message">This form is: <span id="msg"></span></div>
                 <section class="social-networks">
                     <a href="https://twitter.com/@pour_qua"><img id="tlogo" src="./assets/image/twitter.svg" class="social-networks-image"></a>&nbsp;&nbsp;&nbsp;&nbsp;
                     <a href=" https://www.instagram.com/elshadai_tegegn"><img id="ilogo" src="./assets/image/instagram.svg" class="social-networks-image"></a>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -82,6 +101,36 @@
         <img src="./assets/image/icon.png" alt="Footer Logo">
         <span>Developed by Elsh Tegegn. <br>Copyright &copy; 2020</span>
     </footer>
-
+    <script>
+        $(function(){
+            let validationModule = function(){
+                let elements = $('[data-role ="validate"]');
+                elements.popover({placement: 'top'});
+                elements.on('invalid', () => {
+                    let firstInvalidElement = document.querySelector('input:invalid');
+                    $(firstInvalidElement).popover('show');
+                });
+                elements.on('blur', () => $(this).popover('hide'));
+                let validate = () => {
+                    let commentForm = document.querySelector('#comment-form');
+                    return commentForm.checkValidty();
+                };
+                return {
+                    validate: validate
+                };
+            };
+            let validator = new validationModule();
+            let $msg = $('#msg');
+            $('[data-role="trigger-validation"]').click(function(){
+                if(validator.validate()){
+                    $msg.text('Valid');
+                }
+                else{
+                    $msg.text('Invalid')
+                    document.getElementById('msg').textContent = 'Invalid';
+                };
+            });
+        });
+    </script>
 </body>
 </html>

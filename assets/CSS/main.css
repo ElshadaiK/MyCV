@@ -304,6 +304,9 @@ input:valid{
 input:required {
   border-bottom: 2px solid #c33;
 }
+#message{
+  color: white;
+}
 
 /* My Works page editing */
 .question-section   {
