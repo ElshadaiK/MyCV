@@ -78,14 +78,14 @@
                         </section>
         
                         <section class="favorites fav1">
-                            <video width="500" controls loop poster="./assets/image/frozen2.jfif"
-                            data-firstfile="aladdinOfficialTrailer"
-                            data-secondfile="frozen2OfficialTrailer">
-                                <source src="./assets/Videos/Frozen2Official Trailer.mp4">
+                            <video width="500" controls poster="./assets/image/frozen2.jfif" id="vid"
+                            data-firstfile="frozen2OfficialTrailer"
+                            data-secondfile="./assets/Videos/aladdinOfficialTrailer.mp4">
+                                <source src="./assets/Videos/Frozen2OfficialTrailer.mp4">
                                 <p>This browser doesn't support native video</p>
                             </video>
-                            <h5>Frozen 2 - 2019</h5>
-                            <p>My favorite movie</p>
+                            <h5 id="movieTitle">Frozen 2 - 2019</h5>
+                            <p>My favorite movies</p>
                         </section>
             
                         <section class="favorites fav2">
@@ -194,6 +194,29 @@
         <img src="./assets/image/icon.png" alt="Footer Logo">
         <span>Developed by Elsh Tegegn. <br>Copyright &copy; 2020</span>
     </footer>
+    <script>
+        let video, firstFileName, secondFileName, forEach;
+        forEach = Array.prototype.forEach;
+        video = document.getElementById('vid');
 
+        firstFileName = video.getAttribute('data-firstfile');
+        secondFileName = video.getAttribute('data-secondfile');
+        
+        video.addEventListener('ended', () => {
+            sources = document.getElementsByTagName('source');
+
+            if(sources[0].src.indexOf(secondFileName) === -1){
+                // forEach.call(sources, (source) => source.src = source.src.replace(firstFileName, secondFileName));
+                sources[0].src = secondFileName;
+                let title = document.getElementById('movieTitle');
+                let title1 = title.textContent;
+                let title2 = "Aladdin - 2019"
+                title.textContent = title2;
+                video.load();
+                video.play();
+            }
+        }, false);
+
+    </script>
 </body>
 </html>
