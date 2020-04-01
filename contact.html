@@ -56,7 +56,8 @@
                     <input type="email" class="contact-form-text"  id="email" placeholder="Your Email" required>
                     <div class="validation-messages">
                         <span data-rule='valueMissing' class="hide">* Email Address is required</span><br>
-                        <span data-rule='typeMismatch' class="hide">The required email maynot include any special characters other than the '.' or '@'</span>
+                        <span data-rule='typeMismatch' class="hide">The required email maynot include any special characters other than the '.' or '@'.</span>
+                        <span data-rule='isExample' class="hide">Enter valid email address, @example isn't allowed</span>
                     </div>
                     <input type="tel" class="contact-form-text"  id="phone" placeholder="Your Phone">
                     <input type="password" class="contact-form-text"  id="password"  pattern='("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")' placeholder="Password" required>
@@ -106,6 +107,9 @@
                 forEach.call(messages, (message) => {
                     message.classList.add('hide');
                 });
+
+                validateAgainstCustomRules();
+
                 document.getElementById('comment-form').checkValidity();
             };
             let validationFail = (e) => {
@@ -124,8 +128,22 @@
                     forEach.call(rules, (rule) => rule.classList.remove('hide'));
                 };
             };
-        
-            var inputElements = document.querySelectorAll('input:not(button)');
+            let validateAgainstPattern = (element, pattern, ruleName) => {
+                if(element.value.match(pattern)){
+                    element.setCustomValidity('invalid');
+                    element.nextElementSibling
+                            .querySelectorAll('[data-rule="' + ruleName + '"]')
+                            .classList
+                            .remove('hide');
+                }
+                else{
+                    element.setCustomValidity('');
+                }
+            };
+            let validateAgainstCustomRules = () => {
+                validateAgainstPattern(document.getElementById('email'), /@example.com/i, 'isExample');
+            }
+            let inputElements = document.querySelectorAll('input:not(button)');
             forEach.call(inputElements, function(input){
                 input.oninvalid = validationFail;
                 input.onblur = validate;
