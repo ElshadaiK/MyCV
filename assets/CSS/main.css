@@ -265,7 +265,7 @@
 }
 textarea.contact-form-text{
     resize: none;
-    height: 120px;
+    height: 180px;
 }
 .contact-form-btn{
     float: right;
@@ -291,14 +291,14 @@ textarea.contact-form-text{
 input:valid + .invalid{
   visibility: hidden;
 }
-input:valid{
-  border-bottom: transparent;
-}
 input:invalid +.invalid{
   visibility: visible;
 }
+input:valid{
+  border-bottom: transparent;
+}
 .invalid{
-  color: #ff5555;
+  color: #ff8888;
   font-size: small;
 }
 input:required {
