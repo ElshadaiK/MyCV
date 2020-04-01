@@ -288,7 +288,22 @@ textarea.contact-form-text{
 .contact-form-btn:hover{
     background: #2980b9;
 }
- 
+input:valid + .invalid{
+  visibility: hidden;
+}
+input:valid{
+  border-bottom: transparent;
+}
+input:invalid +.invalid{
+  visibility: visible;
+}
+.invalid{
+  color: #ff5555;
+  font-size: small;
+}
+input:required {
+  border-bottom: 2px solid #c33;
+}
 
 /* My Works page editing */
 .question-section   {

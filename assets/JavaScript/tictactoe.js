@@ -3,7 +3,10 @@ let computerValue;
 let turn;
 let messages;
 let inputs = document.querySelectorAll("input[type=radio]");
-
+document.getElementById('board').style.visibility = 'hidden';
+document.getElementById('gameInfo').style.display = 'none';
+document.getElementById('info').style.display = 'none';
+        
 x=inputs.length;
 
 while(x--)
@@ -22,6 +25,9 @@ while(x--)
         }
         document.getElementById('status').innerText = "You're " + userValue;
         document.getElementById('status').style.visibility= 'visible';
+        document.getElementById('board').style.visibility = 'visible';
+        document.getElementById('gameInfo').style.display = 'flex';
+        document.getElementById('info').style.display = 'inline';
     },0);
 
     /*----- constants -----*/
@@ -46,20 +52,18 @@ while(x--)
     let board;
     let win;
     if(board){
-    win = board[0] && board[0] === board[1] && board[0] === board[2] ? board[0] : null;
-    /*----- event listeners -----*/
+        win = board[0] && board[0] === board[1] && board[0] === board[2] ? board[0] : null;
     }
-    document.getElementById('board').addEventListener('click', handleTurn);
-    document.getElementById('reset-button').addEventListener('click', init);
+    
     /*----- functions -----*/
-    function init() {
+    let init = () => {
         board = [
         '', '', '',
         '', '', '',
         '', '', ''
         ];
-        function render() {
-            board.forEach(function(mark, index){
+        let render = () => {
+            board.forEach((mark, index) => {
                 squares[index].textContent = mark;
             });
             
@@ -71,7 +75,7 @@ while(x--)
     };
 
     init();
-    function handleTurn(event) {
+    let handleTurn = event => {
         let idx = squares.findIndex(function(square) {
         return square === event.target;
         });
@@ -116,3 +120,6 @@ while(x--)
         });
         return winner ? winner : board.includes('') ? null : 'T';
     }
+    /*----- event listeners -----*/
+    document.getElementById('board').addEventListener('click', handleTurn);
+    document.getElementById('reset-button').addEventListener('click', init);
