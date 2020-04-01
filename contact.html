@@ -47,15 +47,23 @@
             <section class="contact-section">
             <h1>Leave your comment here</h1>
             <div class="border"></div>
-                <form class="contact-form" enctype="text/plain" action="mailto:elshadaikassutegegn@gmail.com" method="POST">
+                <form class="contact-form" enctype="text/plain" action="mailto:elshadaikassutegegn@gmail.com" method="POST" id="comment-form">
                     <input type="text" class="contact-form-text" id="fName" pattern="[a-zA-Z]{4,8}" placeholder="Your Name" required>
-                    <div class="invalid">The required name should only contain alphabetical characters</div>
+                    <div class="validation-messages">
+                        <span data-rule='valueMissing' class="hide">* Name is required</span><br>
+                        <span data-rule='patternMismatch' class="hide">The required name should only contain alphabetical characters with 4-8 length</span>
+                    </div>
                     <input type="email" class="contact-form-text"  id="email" placeholder="Your Email" required>
-                    <div class="invalid">The required email maynot include any special characters other than the '.' or '@'</div>
+                    <div class="validation-messages">
+                        <span data-rule='valueMissing' class="hide">* Email Address is required</span><br>
+                        <span data-rule='typeMismatch' class="hide">The required email maynot include any special characters other than the '.' or '@'</span>
+                    </div>
                     <input type="tel" class="contact-form-text"  id="phone" placeholder="Your Phone">
                     <input type="password" class="contact-form-text"  id="password"  pattern='("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")' placeholder="Password" required>
-                    <div class="invalid">Password should be minimun 8 characters long, and should contain atleast one uppercase, one lowercase, and one special character</div>
-                    <select name="continents"class="contact-form-text"  >
+                    <div class="validation-messages">
+                        <span data-rule='valueMissing' class="hide">* Password is required</span><br>
+                        <span data-rule='patternMismatch' class="hide">Password should be minimun 8 characters long, and should contain atleast one uppercase, one lowercase, and one special character</span>
+                    </div><select name="continents"class="contact-form-text"  >
                         <option value="African">Africa</option>
                         <option value="Asian">Asia</option>
                         <option value="European">Europe</option>
@@ -82,6 +90,48 @@
         <img src="./assets/image/icon.png" alt="Footer Logo">
         <span>Developed by Elsh Tegegn. <br>Copyright &copy; 2020</span>
     </footer>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function(e){
+            let ruleNames = [];
+            let forEach = Array.prototype.forEach;
+            let ruleElements = document.querySelectorAll('span[data-rule]');
+            forEach.call(ruleElements, (element) => {
+                let ruleName =  element.getAttribute('data-rule');
+                if(ruleNames.indexOf(ruleNames) < 0){
+                    ruleNames.push(ruleName);
+                };
+            });
+            let validate = () => {
+                let messages = document.querySelectorAll('.validation-messages span');
+                forEach.call(messages, (message) => {
+                    message.classList.add('hide');
+                });
+                document.getElementById('comment-form').checkValidity();
+            };
+            let validationFail = (e) => {
+                let element = e.currentTarget;
+                let validity = element.validity;
+                if(!validity.valid){
+                    ruleNames.forEach((ruleName) => checkRule(validity, ruleName, element));
+                    e.preventDefault();
+                }
+            };
+            let checkRule = (state, ruleName, element) => {
+                if(state[ruleName]){
+                    let rules = element
+                                        .nextElementSibling
+                                        .querySelectorAll('[data-rule="' + ruleName + '"]');
+                    forEach.call(rules, (rule) => rule.classList.remove('hide'));
+                };
+            };
+        
+            var inputElements = document.querySelectorAll('input:not(button)');
+            forEach.call(inputElements, function(input){
+                input.oninvalid = validationFail;
+                input.onblur = validate;
+            })
+            document.getElementById('submit').addEventListener('click', validate, false);
+        });
+    </script>
 </body>
 </html>

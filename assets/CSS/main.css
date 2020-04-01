@@ -288,18 +288,12 @@ textarea.contact-form-text{
 .contact-form-btn:hover{
     background: #2980b9;
 }
-input:valid + .invalid{
-  visibility: hidden;
-}
-input:invalid +.invalid{
-  visibility: visible;
-}
-input:valid{
-  border-bottom: transparent;
-}
-.invalid{
+.validation-messages{
   color: #ff8888;
   font-size: small;
+}
+.hide{
+  visibility: hidden;
 }
 input:required {
   border-bottom: 2px solid #c33;
