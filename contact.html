@@ -110,10 +110,12 @@
                     let firstInvalidElement = document.querySelector('input:invalid');
                     $(firstInvalidElement).popover('show');
                 });
-                elements.on('blur', () => $(this).popover('hide'));
+                elements.on('blur', () => {
+                    $(this).popover('hide');
+                });
                 let validate = () => {
                     let commentForm = document.querySelector('#comment-form');
-                    return commentForm.checkValidty();
+                    return commentForm.checkValidity();
                 };
                 return {
                     validate: validate
