@@ -112,7 +112,16 @@
     font-size: medium;
     background-color: lightgrey;
 }
- 
+#scrubber{
+  width: 80%;
+}
+.btn{
+  color: #1166ff;
+  border: none;
+  width: 10%;
+  padding: 2%;
+  margin: 2%;
+}
 .title{
     max-height: 900px;
     text-align: center;

@@ -78,11 +78,24 @@
                         </section>
         
                         <section class="favorites fav1">
-                            <video width="500" controls loop poster="./assets/image/frozen2.jfif">
+                            <video id="vid" width="500" poster="./assets/image/frozen2.jfif">
                                 <source src="./assets/Videos/Frozen2Official Trailer.mp4">
                                 <p>This browser doesn't support native video</p>
                             </video>
-                            <h5>Aladdin 2019</h5>
+                            <span id="remainingTime">0.00</span>
+                            <input type="range" id="scrubber" min="0" max="153" step="1" value="0"></button>
+                            <span id="totalTime">0.00</span>
+                            <button class="btn btn-sm" id="playPause">▶</button>
+                            <button class="btn btn-sm" id="begin">⏮</button>
+                            <button class="btn btn-sm" id="rewind">⏪</button>
+                            <button class="btn btn-sm" id="fastForward">⏩</button>
+                            <button class="btn btn-sm" id="end">⏭</button>
+                            <button class="btn btn-sm" id="stop">⏹</button>
+                            <button class="btn btn-xs" id="mute">🔉</button>
+                            <input type="range" id="volume" title="Volume" min="0" step="0.1" max="1" value="1">
+                            <label for="playbackRate">⏫</label>
+                            <input type="range" id="playbackRate" min="1" max="4" step="1" value="1" title="Playback Speed" name="playbackRate"></button>
+                            <h5>Frozen 2 - 2019</h5>
                             <p>My favorite movie</p>
                         </section>
             
@@ -192,6 +205,89 @@
         <img src="./assets/image/icon.png" alt="Footer Logo">
         <span>Developed by Elsh Tegegn. <br>Copyright &copy; 2020</span>
     </footer>
-
+    <script>
+        let video = document.getElementById('vid');
+        let remainingTime = document.getElementById('remainingTime');
+        let totalTime = document.getElementById('totalTime');
+        let playPause = document.getElementById('playPause');
+        let stop = document.getElementById('stop');
+        let rewind = document.getElementById('rewind');
+        let begin = document.getElementById('begin');
+        let end = document.getElementById('end');
+        let fastForward = document.getElementById('fastForward');
+        let volume = document.getElementById('volume');
+        let mute = document.getElementById('mute');
+        let scrubber = document.getElementById('scrubber');
+        let playbackRate = document.getElementById('playbackRate');
+        const TIME_STEP = 5;
+        let vol = 0;
+        
+        let formatTime = (seconds) => {
+            seconds = Math.round(seconds);
+            let minutes = 0;
+            if(seconds >= 60){
+                minutes = Math.floor(seconds/60);
+                seconds -= (minutes*60);
+            }
+            seconds += "";
+            if(seconds.length == 1){
+                seconds = "0" + seconds;
+            }
+            return minutes + ":" + seconds;
+        };
+        let playOrPauseVideo = () => {
+            if(video.paused || video.ended){
+                video.play();
+                playPause.innerText = "⏸";
+            }
+            else{
+                video.pause();
+                playPause.innerText = "▶";
+            }
+        };
+        // Event listeners
+        video.addEventListener('click', playOrPauseVideo, false);
+        playPause.addEventListener('click', playOrPauseVideo, false);
+        stop.addEventListener('click', () => {
+            video.pause();
+            video.currentTime = 0;
+            playPause.innerText = "▶";
+            video.playbackRate = 1;
+            playbackRate.value = 1;
+        }, false);
+        begin.addEventListener('click', () => video.currentTime = 0, false);
+        rewind.addEventListener('click', () => video.currentTime -= TIME_STEP, false);
+        fastForward.addEventListener('click', () => video.currentTime += TIME_STEP, false);
+        end.addEventListener('click', () => {
+            video.currentTime = video.duration;
+            playPause.innerText = "▶";
+        }, false);
+        
+        volume.addEventListener('change', () => video.volume = volume.value, false);
+        mute.addEventListener('click', () => {
+            if(!video.muted){
+                vol = volume.value;
+            }
+            video.muted = !video.muted;
+            if(video.muted){
+                video.volume = 0;
+                mute.innerText = '🔇';
+            }
+            else{
+                video.volume = vol;
+                mute.innerText = '🔉';
+            }
+        }, false);
+        scrubber.addEventListener('change', () => video.currentTime = this.value, false);
+        playbackRate.addEventListener('change', () => video.playbackRate = this.value, false);
+        video.addEventListener('play', () => {
+            totalTime.innerText = formatTime(video.duration);
+            console.log(video.volume);
+        }, false);
+        video.addEventListener('timeupdate', () => {
+            remainingTime.innerText = formatTime(video.currentTime);
+            scrubber.value = video.currentTime;
+        })
+    </script>
 </body>
 </html>
