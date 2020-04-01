@@ -167,6 +167,31 @@
     color: #777;
   }
   
+  /* favorites */
+  .favorites   {
+    display: inline-block;
+    width: 45%;
+    padding: 20px 30px;
+  }
+  .favorites img  {
+    margin-bottom: 12px;
+    width: 80px;
+  }
+  .favorites h5, .top-skills h5 {
+    font-size: 20px;
+    color: #999;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin: 0;
+  }
+  .fav1{
+    text-align: left;
+  }
+  .fav2{
+    text-align: right;
+  }
+
   /* hobbies and interests */
   .hobby-interest   {
     display: inline-block;
