@@ -41,6 +41,8 @@
             </li>
             <li><a href="#places">Places</a>  
             </li>
+            <li><a href="#draw">My drawings</a>  
+            </li>
         </ul>
         </nav>
     </header>
@@ -210,10 +212,108 @@
             <h3  id="subscribe">Subscribe for latest updates</h3>
         </summary>
     </aside> -->
+    <aside>
+        <section id="draw">
+                        
+            <section class="section-header">
+                <h3>My drawings</h3>
+            </section>
+            <section>
+                <canvas id="canvas" width="1200" height="350"></canvas>
+            </section>
+        </section>
+    </aside>
 </main>
 <footer>
     <img src="./assets/image/icon.png" alt="Footer Logo">
     <span>Developed by Elsh Tegegn. <br>Copyright &copy; 2020</span>
 </footer>
+<script>
+    let canvas, context;
+    canvas = document.getElementById('canvas');
+
+    // Triangle
+    if(canvas && canvas.getContext){
+        context = canvas.getContext('2d');
+        context.beginPath();
+        context.moveTo(75, 50);
+        context.lineTo(75,100);
+        context.lineTo(25, 100);
+        context.fill();
+    }
+
+    // L shape
+      if(canvas && canvas.getContext){
+    // if(Modernizr.canvas){
+        context = canvas.getContext('2d');
+        context.beginPath();
+        context.moveTo(100, 100);
+        context.lineTo(100,300);
+        context.lineTo(150,300);
+        context.lineTo(150,155);
+        context.lineTo(205,155);
+        context.lineTo(205,100);
+        context.closePath();
+        
+        context.fillStyle = '#0099ff';
+        context.fill();
+
+        context.lineWidth = 6;
+        context.lineJoin = 'round';
+        context.strokeStyle = '#cccccc';
+        context.stroke();
+    }
+
+    //  Rectangles
+    if(canvas && canvas.getContext){
+        context = canvas.getContext('2d');
+
+        context.fillStyle = 'rgb(500,0,0)';
+        context.fillRect(250,50,100,100);
+
+        context.fillStyle = 'rgba(0,0,500,0.5)';
+        context.fillRect(280,80,100,100);
+        
+        context.clearRect(315, 115, 20, 20);
+        context.strokeStyle = 'rgb(51, 153, 0)';
+        context.lineWidth = 6;
+        context.strokeRect(315, 115, 20, 20);
+    }
+    // let x = 160;
+    // let g1, g2;
+    // //  Arc, gradients & text
+    // if(canvas && canvas.getContext){
+    //     context = canvas.getContext('2d');
+
+    //     g1 = context.createRadialGradient(x, 120, 0, x+160, 220, 300);
+    //     g1.addColorStop(0, '#dddddd');
+    //     g1.addColorStop(1, '#888888');
+
+    //     //base circle
+    //     context.fillStyle = g1;
+        
+    //     context.beginPath();
+    //     context.arc(x+20, 180, 160, 0, Math.pi*2, true);
+    //     context.lineWidth = 2;
+    //     context.strokeStyle = '#000000';
+    //     context.stroke();
+    //     context.fill();
+
+    //     g2 = context.createRadialGradient(x+200, 320, 0, x+100, 220, 200);
+    //     g2.addColorStop(0, '#ffffff');
+    //     g2.addColorStop(1, '#999999');
+
+    //     //base circle
+    //     context.fillStyle = g2;
+
+    //     context.beginPath();
+    //     context.arc(x+20, 180, 130, 0, Math.pi*2, true);
+    //     context.fill();
+
+    //     context.fillStyle = '#999999';
+    //     context.font = '280px Arial';
+    //     context.fillText('C', x-80, 280);
+    // }
+</script>
 </body>
 </html>
