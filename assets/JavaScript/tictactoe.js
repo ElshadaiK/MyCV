@@ -101,7 +101,13 @@ while(x--)
 // ADDING STYLE FOR THE COMPUTER
         }
         win = getWinner(); 
-        turn = turn === 'X' ? 'O' : 'X';         
+        console.log(win)
+        if(!win){
+        turn = turn === 'X' ? 'O' : 'X';    
+        }     
+        if(win){
+            gameOver(win);
+        }
     }
     function computerTurn(){
         let indexes = [];
@@ -113,12 +119,18 @@ while(x--)
         let randomItem = indexes[Math.floor(Math.random()*indexes.length)];
         choose(randomItem, undefined);
     }
+    
     function getWinner() {
         let winner = null;
         winningCombos.forEach(function(combo, index) {
         if (board[combo[0]] && board[combo[0]] === board[combo[1]] && board[combo[0]] === board[combo[2]]) winner = board[combo[0]];
         });
         return winner ? winner : board.includes('') ? null : 'T';
+    }
+    function gameOver(winner){
+        document.getElementById('status').innerText = winner + " Won ";
+        document.getElementById('board').removeEventListener('click', handleTurn);
+    
     }
     /*----- event listeners -----*/
     document.getElementById('board').addEventListener('click', handleTurn);
