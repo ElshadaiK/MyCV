@@ -72,6 +72,7 @@ while(x--)
             messages.textContent = win === 'T' ? `That's a tie, queen!` : win ? `${win} wins the game!` : `It's ${turn}'s turn!`;}
         };
         render();
+        document.getElementById('board').addEventListener('click', handleTurn);
     };
 
     init();
