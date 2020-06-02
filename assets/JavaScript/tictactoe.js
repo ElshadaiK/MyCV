@@ -54,7 +54,19 @@ while(x--)
     if(board){
         win = board[0] && board[0] === board[1] && board[0] === board[2] ? board[0] : null;
     }
-    
+    let handleTurn = event => {
+        let idx = squares.findIndex(function(square) {
+        return square === event.target;
+        });
+        if(board[idx] === ""){
+        choose(idx, event)
+        if(turn === computerValue){
+            computerTurn();
+        }
+        }
+// check your console logs to make sure it's working!
+        console.log(board);
+        };
     /*----- functions -----*/
     let init = () => {
         board = [
@@ -76,19 +88,7 @@ while(x--)
     };
 
     init();
-    let handleTurn = event => {
-        let idx = squares.findIndex(function(square) {
-        return square === event.target;
-        });
-        if(board[idx] === ""){
-        choose(idx, event)
-        if(turn === computerValue){
-            computerTurn();
-        }
-        }
-// check your console logs to make sure it's working!
-        console.log(board);
-        };
+
     function choose(num, event){
         board[num] = turn;
         if(event){
