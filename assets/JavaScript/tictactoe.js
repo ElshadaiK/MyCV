@@ -61,7 +61,10 @@ while(x--)
         if(board[idx] === ""){
         choose(idx, event)
         if(turn === computerValue){
-            computerTurn();
+            let move = computerTurn();
+            if(move){
+            choose(move, undefined);
+            }
         }
         }
 // check your console logs to make sure it's working!
@@ -102,7 +105,6 @@ while(x--)
 // ADDING STYLE FOR THE COMPUTER
         }
         win = getWinner(); 
-        console.log(win)
         if(!win){
         turn = turn === 'X' ? 'O' : 'X';    
         }     
@@ -112,13 +114,46 @@ while(x--)
     }
     function computerTurn(){
         let indexes = [];
+        let move;
+        let seePossibles = (value) => {
+            let boardCopy = board.slice();
+            boardCopy[value] = computerValue;
+            if(getWinner() == computerValue){
+                move = value;
+
+            }
+        }
         board.forEach(function check(item, index){
             if(item === ""){
                 indexes.push(index);
             }
         });
-        let randomItem = indexes[Math.floor(Math.random()*indexes.length)];
-        choose(randomItem, undefined);
+        indexes.forEach(seePossibles)
+        let cornerFilter = (value) => {
+            if([0, 2, 6, 8].includes(value)){
+                return value;
+            }
+        }
+        let cornersOpen = indexes.filter(cornerFilter);
+        
+        if(cornersOpen.length > 0){
+            move = cornersOpen[Math.floor(Math.random()*indexes.length)];
+            return move;
+        }
+        if(indexes.includes(4)){
+            move = 4;
+            return move;
+        }
+        let edgeFilter = (value) => {
+            if([1, 3, 5, 7].includes(value)){
+                return value;
+            }
+        }
+        let edgesOpen = indexes.filter(edgeFilter);
+        if(edgesOpen.length > 0){
+            move = edgesOpen[Math.floor(Math.random()*indexes.length)];
+            return move;
+        }
     }
     
     function getWinner() {
